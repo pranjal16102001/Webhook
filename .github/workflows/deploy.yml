@@ -1,0 +1,17 @@
+name: auto_generate
+on:
+  pull_request_target:
+    types:
+      - closed
+    branches:
+      - master
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run_deployment_on_looker_development
+        if: github.ref == 'refs/heads/master'
+        uses: wei/curl@v1
+        with:
+          args: -i -X POST -H "X-Looker-Deploy-Secret:${{ secrets.AUTODEPLOY }}" https://searcepartner.cloud.looker.com/webhooks/projects/auto_deploy/deploy
