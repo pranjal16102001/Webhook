@@ -15,7 +15,7 @@
 
     # This creates a horizontal bar chart.
     # To change this to a vertical column chart, simply change the line below to 'type: looker_column'
-    type: looker_line
+    type: looker_column
 
     model: sales_model
     explore: facts_order
