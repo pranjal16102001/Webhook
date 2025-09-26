@@ -22,6 +22,10 @@ view: dim_customers {
     sql: ${TABLE}.city ;;
   }
 
+  dimension: place {
+    type: string
+    sql: ${TABLE}.place ;;
+  }
   dimension: country {
     type: string
     map_layer_name: countries
